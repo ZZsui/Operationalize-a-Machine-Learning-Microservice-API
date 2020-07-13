@@ -6,7 +6,7 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=zzsui/mlapi
+dockerpath=zachsui/udacity_mlapi_docker
 
 # Step 2:  
 # Authenticate & tag

@@ -1,1 +1,31 @@
 <paste log output from Kubernetes-mediated prediction, here>
+
+// Run Kubernetes
+➜  Operationalize-a-Machine-Learning-Microservice-API git:(master) ✗ ./run_kubernetes.sh
+pod/mlmicroserviceapi created
+NAME                READY   STATUS              RESTARTS   AGE
+mlmicroserviceapi   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+➜  Operationalize-a-Machine-Learning-Microservice-API git:(master) ✗ kubectl get pod
+NAME                READY   STATUS    RESTARTS   AGE
+mlmicroserviceapi   1/1     Running   0          42s
+
+// Forward port
+➜  Operationalize-a-Machine-Learning-Microservice-API git:(master) ✗ kubectl port-forward mlmicroserviceapi 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+
+
+// make prediction
+Operationalize-a-Machine-Learning-Microservice-API git:(master) ✗ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+
